@@ -1,0 +1,161 @@
+<!DOCTYPE>
+<style>
+	.item{position:absolute;}
+	.shortAddress{
+		display: ##IF(VAR(waybilldata.shortAddress),NULL,none,block);
+	}
+	.bigPen{
+		display: ##IF(VAR(waybilldata.bigPen),NULL,none,block);
+	}
+	.goodsname{
+		display: ##IF(VAR(custom.shop.goods_name),NULL,none,block);
+	}
+	.remark{
+		display: ##IF(VAR(custom.custom_remark),NULL,none,block);
+	}
+	.receive {
+		text-align: center;
+		line-height: 24px;
+		font-weight: 700;
+		border: 2px solid #000;
+		border-radius: 50%;
+	}
+	.arrow {
+		border-bottom: 15px solid transparent;
+		border-left: 15px solid transparent;
+		border-right: 15px solid transparent ;
+		border-top: 15px solid #000;
+		
+	}
+	.clock{
+		border: 1px solid #000;
+		border-radius: 50%;
+	}
+</style>
+<body style="background-color:transparent;margin:0">
+	<!-- <div style="width: 800px;height: 1440px;border: #000000 1px solid;"> -->
+		<input type="hidden" value="##VAR(waybilldata.shortAddress)" id="shortAddress" />
+		<input type="hidden" value="##VAR(waybilldata.bigPen)" id="bigPen" />
+		<input type="hidden" value="##VAR(waybilldata.printKeyWord)" id="printKeyWord" />
+		<input type="hidden" value="##VAR(custom.receiver.mobile)" id="mobile" />
+		<!--第一根横线-->
+		<div class="item hdotline" style="left:0px;top:140px;width:800px;height:0;border-top:1px dashed #000"></div>
+		<!--三段码或大笔头-->
+		<div class="item shortAddress" style="left:7px;top:145px;width:786px;height:100px;font-family:黑体;font-size:100px;font-weight:800;overflow:hidden; text-align:center; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(waybilldata.shortAddress)</div>
+		<div class="item bigPen" style="left:7px;top:145px;width:786px;height:100px;font-family:黑体;font-size:100px;font-weight:800;overflow:hidden; text-align:center; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(waybilldata.bigPen)</div>
+		<!--第二根横线-->
+		<div class="item hdotline" style="left:0px;top:244px;width:800px;height:0;border-top:1px dashed #000"></div>
+		<!--集包地名称和代码-->
+		<div class="item text" style="left:15px;top:243px;width:347px;height:80px;font-family:黑体;font-size:80px;font-weight:600;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(waybilldata.packageCenterName)</div>
+		<div class="item PackagePosition" style="left:526px;top:249px;width:224px;height:70px;">
+			<img src="data:image/jpeg;base64, ##CODE128(VAR(waybilldata.packageCenterCode))" style="height: 40px;width: 224px;" />
+			<div style="display: block;width: 224px;height: 30px;font-size: 16px;">##STRBLOAT(VAR(waybilldata.packageCenterCode))</div>
+		</div>
+		<!--第三根横线-->
+		<div class="item hline" style="left:0px;top:324px;width:800px;height:0;border-top:1px dashed #000000"></div>
+		<!--收件信息-->
+		<div class="item receive" style="top: 359px;left: 15px;width: 30px;height: 30px;font-size: 18px;">收</div>
+		<div class="item arrow" style="top: 385px;left: 17px"></div>
+		<div class="item text" style="left:58px;top:332px;width:692px;height:40px;font-family:黑体;font-size:30px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(custom.receiver.name) ##VAR(custom.receiver.mobile)</div>
+		<div class="item text" style="left:58px;top:362px;width:692px;height:50px;font-family:黑体;font-size:24px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(custom.receiver.province) ##VAR(custom.receiver.city) ##VAR(custom.receiver.area) ##VAR(custom.receiver.address)</div>
+		<!--第四根横线-->
+		<div class="item hline" style="left:0px;top:424px;width:800px;height:0;border-top:1px dashed #000000"></div>
+		<!--寄件信息-->
+		<div class="item staticText" style="left:15px;top:455px;width:30px;height:35px;font-family:黑体;font-size:30px;font-weight:600;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">寄</div>
+		<div class="item text" style="left:58px;top:432px;width:692px;height:40px;font-family:黑体;font-size:24px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(custom.sender.name) ##VAR(custom.sender.mobile)</div>
+		<div class="item text" style="left:58px;top:462px;width:692px;height:50px;font-family:黑体;font-size:24px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(custom.sender.province) ##VAR(custom.sender.city) ##VAR(custom.sender.area) ##VAR(custom.sender.address)</div>
+		<!--第五根横线-->
+		<div class="item hline" style="left:0px;top:524px;width:800px;height:0;border-top:1px dashed #000"></div>
+		<!--运单号条形码-->
+		<div class="item LogisticPosition" style="left:200px;top:534px;width:400px;height:172px;">
+			<img src="data:image/jpeg;base64, ##CODE128(VAR(sys.waybillid))" style="width: 400px;height:132px" />
+			<div style="display: block;width: 400px;height: 40px;font-size: 24px;">##STRBLOAT(VAR(sys.waybillid))</div>
+		</div>
+		
+		<!--第六根横线-->
+		<div class="item hdotline" style="left:0px;top:696px;width:800px;height:0;border-top:1px dashed #000"></div>
+		<div class="item text" style="left:15px;top:701px;width:133px;height:20px;font-family:黑体;font-size:20px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##TIME(DATE)</div>
+		<div class="item text" style="left:15px;top:721px;width:133px;height:20px;font-family:黑体;font-size:20px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##TIME(TIME)</div>
+		<div class="item staticText" style="left:15px;top:741px;width:90px;height:20px;font-family:黑体;font-size:20px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">打印时间</div>
+		<!--时钟图标-->
+		<div class="item clock" style="left:160px;top:741px;width:20px;height:20px"></div>
+		<div class="item" style="left:170px;top:742px;width:1px;height:12px;background-color: #000;"></div>
+		<div class="item" style="left:174px;top:747px;width:1px;height:11px;background-color: #000;transform: rotate(90deg);transform-origin: 0 7.5px"></div>
+		<!--时钟图标结束-->
+		<div class="item text" style="left:15px;top:761px;width:100px;height:20px;font-family:黑体;font-size:20px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">数量：##VAR(custom.shop.goods_count)</div>
+		<div class="item text" style="left:15px;top:781px;width:140px;height:20px;font-family:黑体;font-size:20px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">重量：##VAR(custom.cargo.weight)</div>
+		<!--第一根竖线-->
+		<div class="item vline" style="left:200px;top:696px;height:183px;width:0;border-left:1px solid #000;"></div>
+		<!--二维码-->
+		<div class="item autoSortCode" style="left:203px;top:699px;width:177px;height:177px;">
+			<img src="data:image/jpeg;base64, ##QRCODE(VAR(waybilldata.qrCode))" style="width: 100%;"/>
+		</div>
+		<!--第二根竖线-->
+		<div class="item vline" style="left:383px;top:696px;height:183px;width:0;border-left:1px solid #000;"></div>
+		<div class="item staticText" style="left:390px;top:702px;width:360px;height:150px;font-family:黑体;font-size:24px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">快递描述收件人地址，收件人或者寄件人允许签收，视为描述：您的签字代表您已验收此包裹，并确认商品完好无损，没有划痕，没有破损等质量问题。</div>
+		<div class="item staticText" style="left:535px;top:849px;width:90px;height:25px;font-family:黑体;font-size:24px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">签收栏</div>
+		
+		<!--第七根横线-->
+		<div class="item hdotline" style="left:0px;top:879px;width:800px;height:0;border-top:1px dashed #000"></div>
+		<div class="item LogisticPosition" style="left:338px;top:900px;width:400px;height:84px;">
+			<img src="data:image/jpeg;base64, ##CODE128(VAR(sys.waybillid))" style="width: 400px;height:50px" />
+			<div style="display: block;width: 400px;height: 30px;font-size: 18px;">##STRBLOAT(VAR(sys.waybillid))</div>
+		</div>
+		<!--第八根横线-->
+		<div class="item hdotline" style="left:0px;top:999px;width:800px;height:0;border-top:1px dashed #000"></div>
+		<div class="item receive" style="top: 1031px;left: 15px;width: 30px;height: 30px;font-size: 18px;">收</div>
+		<div class="item arrow" style="top: 1057px;left: 17px"></div>
+		<div class="item text" style="left:58px;top:1004px;width:692px;height:40px;font-family:黑体;font-size:30px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(custom.receiver.name) ##VAR(custom.receiver.mobile)</div>
+		<div class="item text" style="left:58px;top:1034px;width:692px;height:50px;font-family:黑体;font-size:24px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(custom.receiver.province) ##VAR(custom.receiver.city) ##VAR(custom.receiver.area) ##VAR(custom.receiver.address)</div>
+		<!--第九根横线-->
+		<div class="item hdotline" style="left:0px;top:1099px;width:800px;height:0;border-top:1px dashed #000"></div>
+		<div class="item staticText" style="left:15px;top:1124px;width:30px;height:35px;font-family:黑体;font-size:30px;font-weight:600;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">寄</div>
+		<div class="item text" style="left:58px;top:1111px;width:692px;height:30px;font-family:黑体;font-size:24px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(custom.sender.name) ##VAR(custom.sender.mobile)</div>
+		<div class="item text" style="left:58px;top:1141px;width:692px;height:50px;font-family:黑体;font-size:24px;font-weight:normal;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(custom.sender.province) ##VAR(custom.sender.city) ##VAR(custom.sender.area) ##VAR(custom.sender.address)</div>
+		<!--第十根横线-->
+		<div class="item hdotline" style="left:0px;top:1199px;width:800px;height:0;border-top:1px dashed #000"></div>
+		<div class="item text" style="left:15px;top:1201px;width:755px;height:166px;font-family:黑体;font-size:26px;font-weight:400;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;"><font class="goodsname">##VAR(custom.shop.goods_name)</font><br/> <font class="remark">##VAR(custom.custom_remark)</font></div>
+		<div class="item staticText" style="left:688px;top:1362px;width:60px;height:18px;font-family:黑体;font-size:18px;font-weight:600;overflow:hidden; text-align:right; word-break:break-all;word-break:break-all;word-wrap:break-word;">已验视</div>
+		<!--第十一根横线-->
+		<div class="item hdotline" style="left:0px;top:1382px;width:800px;height:0;border-top:1px dashed #000"></div>
+		<div class="item staticText" style="left:15px;top:1389px;width:76px;height:19px;font-family:黑体;font-size:18px;font-weight:400;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">订单号：</div>
+		<div class="item text" style="left:79px;top:1389px;width:300px;height:19px;font-family:黑体;font-size:18px;font-weight:400;overflow:visible; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">##VAR(custom.order_id)</div>
+		<div class="item text" style="left:692px;top:1387px;width:80px;height:26px;font-family:黑体;font-size:26px;font-weight:700;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;" id="mobileshow"></div>
+		<div class="item staticText" style="left:690px;top:1412px;width:80px;height:16px;font-family:黑体;font-size:16px;font-weight:700;overflow:hidden; text-align:left; word-break:break-all;word-break:break-all;word-wrap:break-word;">手机尾号</div>
+		<canvas class="item" style="z-index: -1;left:100px;top:314px;width: 600px;height: 150px;" id="c1"></canvas>
+		<canvas class="item" id="c2" style="z-index: -1;left:100px;top:1167px;height: 110px;" width="800"></canvas>
+	<!-- </div> -->
+	
+</body>
+<script>
+	var shortAddress = document.getElementById("shortAddress").value;
+	var printKeyWord = document.getElementById("printKeyWord").value;
+	var canvasDoc = document.getElementById("c1");
+	var c = document.getElementById("c2");
+	if(shortAddress){
+		var waterprint = shortAddress.substr(4,3);
+		var ctx= canvasDoc.getContext("2d");
+		ctx.font="180px arial";
+		ctx.fillStyle="gray";
+		ctx.fillText(waterprint,0,130);  
+		ctx.textAlign="center"; 
+		ctx.textBaseline="middle"; 
+	}else{
+		canvasDoc.style.display = "none";
+	}
+	
+	if(printKeyWord){
+		var ctx2= c.getContext("2d");
+		ctx2.font="100px arial";
+		ctx2.fillStyle="gray";
+		ctx2.textAlign="center"; 
+		ctx2.textBaseline="middle"; 
+		ctx2.fillText(printKeyWord,400,50);  
+	}
+	var mobile = document.getElementById("mobile").value;
+	if(mobile){
+		document.getElementById("mobileshow").innerText = mobile.substring(7);
+	}else{
+		document.getElementById("mobileshow").style.display="none";
+	}
+</script>

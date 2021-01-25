@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style >
+        *{margin: 0;padding: 0;}
+        body{ font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;}
+        .forme{
+            width: 768px;
+            height: 1440px;
+            border: 1.5px solid #000;
+            border-right: 0;
+            border-top: 0;
+            margin: 15px;
+            font-family: STHeiti, SimHei, Arial, Helvetica, sans-serif;
+        }
+        .topOne{height: 35%;}
+        .inTow{height: 34%;border-bottom: 1.5px solid #000;border-right: 1.5px solid #000;color: #000;}
+        .buttomThree{height: 31%;border-right: 1.5px solid #000;}
+        .topOneTop{height: 43%;border-bottom: 1.5px solid #000;}
+        .sonTop{height: 50%;border-bottom: 1.5px solid #000;border-right: 1.5px solid #000;}
+        .sonButtom{
+            height: 50%;
+            font-size: 70px;
+            letter-spacing: 5px;
+            border-right: 1.5px solid #000;
+            line-height: 1;
+        }
+        .sonTopLeft{
+            width: 40%;
+            height: 100%;
+            line-height: 3;
+            border-top: 1.5px solid #000;
+        }
+        .sonTopRight{
+            width: 60%;
+            height: 100%;
+            border-top: 1.5px solid #000;
+        }
+        .folatLeft{float: left;}
+        .folatRight{float: right;}
+        .clearFloat:after{display: block;clear:both;content: ""}
+        .centered{text-align: center;}
+        .topOneButtom{height: 56.5%;}
+        .isOne{height: 45%;border-bottom:1.5px solid #000;border-right: 1.5px solid #000;}
+        .isTow{height: 54.5%;color: #000;border-bottom:1.5px solid #000;border-right: 1.5px solid #000;}
+        .ShareLeft{
+            width: 10%;
+            border-right: 1.5px solid #000;
+            height: 100%;
+            font-size: 27px;
+        }
+        .ShareIn{
+            width: 67%;
+            border-right: 1.5px solid #000;
+            height: 100%;
+            font-size: 60px;
+            letter-spacing: 5px;
+            line-height: 2;
+            overflow: hidden;
+        }
+        .ShareButtom{
+            width: 22.41%;
+            height: 100%;
+        }
+        .souDi{
+            margin-top: 10px;
+            margin-left: 5px;
+            line-height: 1.2;
+            font-size: 22px;
+            letter-spacing: 0;
+        }
+        .ShareButtom_p{
+            font-size: 24px;
+            margin: 10px 0 0 10px;
+        }
+        .inTowTop{
+            height: 40%;
+            border-bottom: 1.5px solid #000;
+            text-align: center;
+            font-size: 26px;
+        }
+        .inTowBottom{height: 60%;}
+        .detailsTop{
+            height: 56%;
+            border-bottom: 1.5px solid #000;
+        }
+        .detailsBottom{
+            height: 43%;
+        }
+        .detailsTopOne{
+            width: 50%;
+            height: 100%;
+            border-right: 1.5px solid #000;
+            overflow: hidden;
+        }
+        .detailsTopTow{
+            width: 27%;
+            height: 100%;
+            border-right: 1.5px solid #000;
+        }
+        .first{
+            font-size: 22px;
+            margin: 10px 0 0 10px;
+            line-height: 1.6;
+        }
+        .detailsTopTow p{
+            font-size: 20px;
+            height: 40%;
+        }
+        .disTpotOne{width: 40%;height: 100%;}
+        .disTpotTow{width: 60%;height: 100%;}
+        .disImg{
+            width: 85%;
+            margin-top: 26px;
+        }
+        .disTpotTow p{
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+        .addressTop{height: 55%;border-bottom: 1.5px solid #000;color: #000}
+        .Destination{height: 44.5%;}
+        .isLeft{
+            width: 75%;
+            height: 100%;
+            border-right: 1.5px solid #000;
+        }
+        .isRight{
+            width: 24.5%;
+            height: 100%;
+            text-align: center;
+            font-size: 20px;
+        }
+        .isLeftOne{
+            height: 50%;
+            border-bottom: 1.5px solid #000;
+        }
+        .isLeftTow{
+            height: 49.5%;
+        }
+        .shou{
+            width: 11%;
+            height: 100%;
+            font-size: 20px;
+            border-right: 1.5px solid #000;
+        }
+        .shou img{
+            width: 80%;
+            margin: 59% 7px;
+        }
+        .chang{width: 88.5%;height: 100%;overflow: hidden;}
+        .chang>div{
+            font-size: 22px;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            margin-left: 5px;
+        }
+        .lastOne{height: 50%;border-bottom: 1.5px solid #000;overflow: hidden;}
+        .lastTow{height: 49.5%;}
+        .behavior{width: 40%;height: 100%;border-right: 1.5px solid #000;}
+        .own{width: 59.5%;height: 100%;border: 0;}
+        .behavior div{
+            letter-spacing: 2px;
+            font-size: 22px;
+            margin: 5px 0 0 10px;
+        }
+        .own div{
+            letter-spacing: 2px;
+            margin: 5px 0 0 10px;
+        }
+        .lastTow p{
+            float: right;
+            margin-right: 10px;
+            line-height: 0.97;
+            font-weight: 600;
+            font-size: 34px;
+        }
+        .erweiOne{
+            width: 83%;
+            height: 60%;
+        }
+    </style>
+</head>
+<body>
+    <div class="forme">
+        <div class="topOne">
+            <div class="topOneTop">
+                <div class="sonTop clearFloat">
+                    <div class="sonTopLeft folatLeft"></div>
+                    <div class="sonTopRight folatLeft centered">
+                    </div>
+                </div>
+                <div class="sonButtom centered">
+                    <span style="line-height: 1.4;">##VAR(waybilldata.UC_addr)</span>
+                </div>
+            </div>
+            <div class="topOneButtom">
+                <div class="isOne clearFloat">
+                    <div class="ShareLeft folatLeft centered">
+                        <div style="margin-top:38%"><span>常规区域</span></div>
+                    </div>
+                    <div class="ShareIn folatLeft centered">
+                        <p >##VAR(waybilldata.UC_mark)</p>
+                    </div>
+                    <div style="line-height: 1;" class="ShareButtom folatLeft centered">
+                        <p style="font-size: 50px;margin-top: 15px;">标准</p>
+                        <p style="font-size: 50px;">快递</p>
+                    </div>
+                </div>
+                <div class="isTow clearFloat">
+                    <div class="ShareLeft folatLeft centered">
+                        <span style="display: block;margin-top: 30px;">收</span>
+                        <span style="display: block;margin-top: 30px;">件</span>
+                    </div>
+                    <div class="ShareIn folatLeft">
+                        <div class="souDi">
+                            <p style="letter-spacing: 2px;">##VAR(custom.receiver.company)</p>
+                            <span style="margin-right: 5%;">##VAR(custom.receiver.name)</span><span style="margin-right: 5%;">##VAR(custom.receiver.tel)</span><span style="margin-right: 5%;">##VAR(custom.receiver.mobile)</span><br>
+                            <span style="font-size:24px;font-weight: 600;">##VAR(custom.receiver.province)##VAR(custom.receiver.city)##VAR(custom.receiver.area)##VAR(custom.receiver.address)</span>
+                        </div>
+                    </div>
+                    <div class="ShareButtom folatLeft">
+                        <div class="ShareButtom_p">
+                            <p>保价：##VAR(custom.insured.insured_value)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inTow">
+            <div class="inTowTop">
+                <div>
+                <p style="padding: 14px 0;">
+                    <span style="letter-spacing: 1px;margin-right: 10px;">主单号：##STRBLOAT(VAR(sys.waybillid))</span>
+                </p>
+                <img src="data:image/jpeg;base64,##CODE128(VAR(sys.waybillid))" class="erweiOne">
+            </div>
+            </div>
+            <div class="inTowBottom">
+                <div class="detailsTop clearFloat">
+                    <div class="detailsTopOne folatLeft">
+                        <div class="first">
+                            <p><span>重量： ##VAR(custom.cargo.weight)</span></p>
+                            <p><span>数量： ##VAR(custom.shop.goods_count)</span></p>
+                            <p style="text-overflow: clip;overflow: hidden;white-space: nowrap;"><span>品名： ##VAR(custom.shop.goods_name)</span></p>
+                            <p style="text-overflow: clip;overflow: hidden;white-space: nowrap;">操作时间： <span style="font-size: 20px;">##TIME(FULL)</span></p>
+                        </div>
+                    </div>
+                    <div class="detailsTopTow folatLeft">
+                        <p style="margin: 10px 0 0 10px;">签收人：</p>
+                        <p style="margin: 0 0 0 10px;">时间：</p>
+                    </div>
+                    <div style="border:0px" class="ShareButtom folatLeft">
+                        <div class="ShareButtom_p">
+                            <p>保价：##VAR(custom.insured.insured_value)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="detailsBottom clearFloat">
+                    <div class="disTpotOne folatLeft"></div>
+                    <div class="disTpotTow folatLeft">
+                            <img class="disImg" src="data:image/jpeg;base64,##CODE128(VAR(sys.waybillid))">
+                            <p>##STRBLOAT(VAR(sys.waybillid))</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttomThree">
+            <div class="addressTop">
+                <div class="isLeft folatLeft">
+                    <div class="isLeftOne clearFloat">
+                        <div class="shou folatLeft">
+                            <span style="display: block;margin-top: 26px;margin-left: 20px;">收</span>
+                            <span style="display: block;margin-top: 26px;margin-left: 20px;">件</span>
+                        </div>
+                        <div class="chang folatLeft">
+                            <div>
+                                <p>##VAR(custom.receiver.company)</p>
+                                <p><span>##VAR(custom.receiver.name)</span> <span>##VAR(custom.receiver.tel)</span> <span>##VAR(custom.receiver.mobile)</span></p>
+                                <p>##VAR(custom.receiver.province)##VAR(custom.receiver.city)##VAR(custom.receiver.area)##VAR(custom.receiver.address)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="isLeftTow clearFloat">
+                        <div class="shou folatLeft">
+                            <span style="display: block;margin-top: 26px;margin-left: 20px;">寄</span>
+                            <span style="display: block;margin-top: 26px;margin-left: 20px;">件</span>
+                        </div>
+                        <div class="chang folatLeft">
+                            <div >
+                                <p>##VAR(custom.sender.company)</p>
+                                <p><span>##VAR(custom.sender.name)</span> <span>##VAR(custom.sender.tel)</span> <span>##VAR(custom.sender.mobile)</span></p>
+                                <p>##VAR(custom.sender.province)##VAR(custom.sender.city)##VAR(custom.sender.area)##VAR(custom.sender.address)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="isRight folatLeft">
+                    <img style="margin: 19% 15px 0;width: 86%;" src="data:image/jpeg;base64,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" >
+                    <span>寄件、 查件</span>
+                </div>
+            </div>
+            <div class="Destination">
+                <div class="lastOne clearFloat">
+                    <div class="behavior folatLeft">
+                        <div>
+                            <p style="margin: 5% 0;">代收：</p>
+                            <p>到付：</p>
+                        </div>
+                    </div>
+                    <div class="own behavior folatLeft">
+                        <div>
+                            <p style="margin: 3.2% 0;">重量：##VAR(custom.cargo.weight)</p>
+                            <p style="overflow: hidden;text-overflow: clip;white-space: nowrap;">品名：##VAR(custom.shop.goods_name)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lastTow">
+                    <div style="margin: 1%;">
+                        <span>客户备注：##VAR(custom.custom_remark)</span>
+                    </div>
+                    
+                    <p>已验视</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 快递单换算8px == 1mm */
+        * {
+            box-sizing: border-box;
+        }
+		.pageContiner{
+			margin: 0px 0px;
+			text-align: left;
+		}
+        .container {
+            width: 800px;
+            height: 1440px;
+            border: 1px solid gray;
+            margin: 0 0;
+            font-family: STHeiti, SimHei, Arial, Helvetica, sans-serif;
+        }
+
+        .block {
+            position: relative;
+            border-bottom: 1px solid #000;
+        }
+
+        .block:last-child {
+            border-bottom: 0;
+        }
+
+        .block_top {
+            height: 880px;
+            border-bottom: 4px solid #000;
+        }
+
+        .block_1 {
+            height: 80px;
+        }
+        .block_1_ph{
+            width: 45%;
+        }
+        .block_1_content{
+            padding: 0 10px;
+            height: 100%;
+            width: 55%;
+            float: right;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .block_2 {
+            height: 120px;
+            font-size: 65px;
+            font-weight: bold;
+            line-height: 100px;
+        }
+
+        .block_2_l {
+            float: left;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .block_2_r {
+            float: right;
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .block_3 {
+            height: 80px;
+            font-size: 52px;
+            font-weight: bold;
+            padding: 10px;
+            line-height: 60px;
+        }
+
+        .block_4 {
+            height: 256px;
+            overflow: hidden;
+        }
+
+        .block_4_l {
+            float: left;
+            width: 600px;
+            border-right: 1px solid #000;
+        }
+
+        .block_4_l_t {
+            height: 160px;
+            overflow: hidden;
+            line-height: 1.3;
+            font-weight: bold;
+        }
+
+        .address_head {
+            float: left;
+            display: table;
+            line-height: 1.5;
+            border-right: 1px solid #000;
+            height: 100%;
+            vertical-align: middle;
+            width: 40px;
+            font-size: 30px;
+        }
+
+        .address_head span {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .address__sender {
+            padding: 10px;
+            margin-left: 40px;
+            font-size: 25px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+        }
+
+        .address__receiver {
+            padding: 10px;
+            margin-left: 40px;
+            font-size: 16px;
+            line-height: 1.4;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+        }
+
+        .block_4_l_b {
+            height: 96px;
+            overflow: hidden;
+        }
+
+        .block_4_r {
+            float: right;
+            width: 198px;
+        }
+
+        .block_head {
+            text-align: center;
+            line-height: 40px;
+            border-bottom: 1px solid #000;
+            font-size: 20px;
+        }
+
+        .block_5 {
+            height: 184px;
+            text-align: center;
+            font-size: 32px;
+            padding: 20px;
+
+        }
+
+        .block_5__barCode {
+            width: 520px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .block_6 {
+            height: 160px;
+            display: table;
+        }
+
+        .block_6_l {
+            display: table-cell;
+            width: 340px;
+            border-right: 1px solid #000;
+            padding: 10px;
+            line-height: 1.5;
+        }
+
+        .block_6_m {
+            display: table-cell;
+            width: 300px;
+            padding: 10px;
+            border-right: 1px solid #000;
+            font-size: 24px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .receive_name {
+            margin-bottom: 70px;
+        }
+
+        .block_6_r {
+            display: table-cell;
+            width: 160px;
+            padding: 10px;
+            vertical-align: middle;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .block_7 {
+            height: 120px;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        .block_7_wrap {
+            float: right;
+            text-align: center;
+            font-size: 24px;
+			margin-right: 20px;
+        }
+
+        .block_7__barCode {
+            width: 360px;
+            height: 70px;
+            margin-bottom: 5px;
+        }
+
+        .block_8 {
+            height: 240px;
+            overflow: hidden;
+        }
+        .block_8 .address__sender{
+            font-size: 20px;
+            line-height: 1.4;
+            font-weight: bold;
+        }
+        .block_8_l{
+            float: left;
+            width: 598px;
+            height: 100%;
+            border-right: 1px solid #000;
+        }
+        .block_8_l_t{
+            height: 120px;
+            width: 600px;
+        }
+        .block_8_l_b{
+            height: 120px;
+        }
+        .block_8_r{
+            float: right;
+            height: 100%;
+            width: 200px;
+            display: table-cell;
+            text-align: center;
+        }
+        .block_8_r img{
+            margin-top: 30px;
+            width:150px;
+            margin-bottom: 10px;
+        }
+
+        .block_9 {
+            height: 200px;
+            padding: 10px;
+        }
+        .block_9_check{
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body class="pageContiner">
+    <div class="container">
+        <div class="block block_top">
+            <div class="block block_1">
+                <div class="block_1_ph"></div>
+                <div class="block_1_content"></div>
+            </div>
+            <div class="block block_2">
+                <div class="block_2_l">
+                    ##VAR(waybilldata.BEST_markDestination)
+                </div>
+                <div class="block_2_r">
+                    ##VAR(waybilldata.BEST_sortingCode)
+                </div>
+            </div>
+            <div class="block block_3">
+                ##VAR(waybilldata.BEST_pkgCode)
+            </div>
+            <div class="block block_4">
+                <div class="block_4_l">
+                    <div class="block block_4_l_t">
+                        <div class="address_head"><span>收件</span></div>
+                        <div class="address__sender">
+                            ##VAR(custom.receiver.name) <br>
+                            电话：##VAR(custom.receiver.mobile) ##VAR(custom.receiver.tel)<br>
+                            地址：##VAR(custom.receiver.province)##VAR(custom.receiver.city)##VAR(custom.receiver.area)##VAR(custom.receiver.address)
+                        </div>
+                    </div>
+                    <div class="block block_4_l_b">
+                        <div class="address_head"><span>寄件</span></div>
+                        <div class="address__receiver">
+                            ##VAR(custom.sender.name)<br>
+                            电话：##VAR(custom.sender.mobile) ##VAR(custom.sender.tel)<br>
+                            地址：##VAR(custom.sender.province)##VAR(custom.sender.city)##VAR(custom.sender.area)##VAR(custom.sender.address)
+                        </div>
+                    </div>
+                </div>
+                <div class="block_4_r">
+                    <div class="block_head">服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务</div>
+                </div>
+            </div>
+            <div class="block block_5">
+                <img src="data:image/jpeg;base64,##CODE128(VAR(sys.waybillid))" class="block_5__barCode">
+                <div class="block__code">##STRBLOAT(VAR(sys.waybillid))</div>
+            </div>
+            <div class="block block_6">
+                <div class="block_6_l">
+                    您对此单的签收，代表您已验收。确认商品信息无误，包装完好，没有划痕、磕碰等表面质量问题。<br>
+					打印日期：##TIME(DATE) ##TIME(TIME)
+                </div>
+                <div class="block_6_m">
+                    <div class="receive_name">签收人：</div>
+                    <div class="receive_time">时间：</div>
+                </div>
+                <div class="block_6_r"></div>
+            </div>
+        </div>
+        <div class="block block_bottom">
+            <div class="block block_7">
+                <div class="block_7_wrap">
+                    <img src="data:image/jpeg;base64,##CODE128(VAR(sys.waybillid))" class="block_7__barCode">
+                    <div class="block__code">##STRBLOAT(VAR(sys.waybillid))</div>
+                </div>
+            </div>
+            <div class="block block_8">
+                <div class="block_8_l">
+                    <div class="block block_8_l_t">
+                        <div class="address_head"><span>收件</span></div>
+                        <div class="address__sender">
+                            ##VAR(custom.receiver.name) <br>
+                            电话：##VAR(custom.receiver.mobile) ##VAR(custom.receiver.tel)<br>
+                            地址：##VAR(custom.receiver.province)##VAR(custom.receiver.city)##VAR(custom.receiver.area)##VAR(custom.receiver.address)
+                        </div>
+                    </div>
+                    <div class="block block_8_l_b">
+                        <div class="address_head"><span>寄件</span></div>
+                        <div class="address__receiver">
+                            ##VAR(custom.sender.name)<br>
+                            电话：##VAR(custom.sender.mobile) ##VAR(custom.sender.tel)<br>
+                            地址：##VAR(custom.sender.province)##VAR(custom.sender.city)##VAR(custom.sender.area)##VAR(custom.sender.address)
+                        </div>
+                    </div>
+                </div>
+                <div class="block_8_r">
+                    <img src="data:image/jpeg;base64,##WXASUNCODE(VAR(sys.wxaappid),256)">
+                    <div>商家二维码</div>
+                </div>
+            </div>
+            <div class="block block_9">
+                <div class="block_9_check">已验视</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

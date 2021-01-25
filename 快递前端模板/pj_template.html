@@ -1,0 +1,318 @@
+
+<!-- saved from url=(0059)http://127.0.0.1:8081/psp-wxp-webapp/wxappPreview/inputFile -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>上传模板</title>
+<style>
+/* 快递单换算8px == 1mm */
+* {
+	box-sizing: border-box;
+}
+.clear-fix:after {
+    visibility: hidden;
+    height: 0;
+    content: ".";
+    clear: both;
+}
+
+.page {
+	width: 624px;
+}
+
+.main {
+	position:relative;
+	width:608px; 
+	margin: 120px 8px 0;
+	border: 1px solid #000;
+}
+.pj-page{
+	position: absolute;
+	right: 24px;
+	top: -24px;
+}
+/** 第一行 **/
+.block1{
+	height: 160px
+}
+.block1 .block-col1{
+	float: left;
+	width: 432px;
+	height:160px;
+	text-align: center;
+}
+.barCode{
+	width: 400;
+    height: 120px;
+    margin-top: 8px;
+}
+.block1 .block-col2{
+	float: left;
+	width: 160px;
+	height:160px;
+	font-size: 60px;
+	border-left: 1px solid #000;
+	text-align: center;
+}
+/** 第二行 **/
+.block2{
+	height: 40px;
+	border-top: 1px solid #000;
+	padding: 0 16px;
+    line-height: 40px;
+    
+}
+/** 第三行、第四行 **/
+.block3,.block4{
+	border-top: 1px solid #000;
+	height: 96px;
+	line-height: 96px;
+	font-size: 35pt;
+	font-weight:bold;
+	text-align: center;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.block4{
+	font-size: 25pt;
+}
+/** 第五行 **/
+.block5{
+	position:relative;
+	height: 160px;
+	border-top: 1px solid #000;
+}
+.block5 .block-col1{
+	position: absolute;
+    top: 50%;
+    height: 2em;
+    width: 2em;
+    margin: -1em 0 0 .5em;
+    border: 1px solid #000;
+    border-radius: 1em;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.8em;
+}
+.block5 .block-col2{
+	margin-left: 80px;
+}
+.block5 .block-col2 .address-info{
+	margin-top:16px;
+	font-weight: bold;
+	max-height: 7em;
+    overflow: hidden;
+    
+}
+.member-info,.address-info{
+	max-height: 1em;
+	margin: 8px;
+	font-size: 12pt;
+	line-height: 12pt;
+	overflow: hidden;
+	word-break: break-all;
+}
+.member-info .mobile{
+	margin-left: 1em;
+}
+/** 第六行 **/
+.block6{
+	position:relative;
+	height: 64px;
+	border-top: 1px solid #000;
+}
+.block6 .block-col1{
+	position: absolute;
+    top: 50%;
+    height: 2em;
+    width: 2em;
+    margin: -1em 0 0 .5em;
+    border: 1px solid #000;
+    border-radius: 1em;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.8em;
+}
+.block6 .block-col2{
+	margin-left: 70px;
+}
+.block6 .member-info,.block6 .address-info{
+	margin: 8px;
+	font-size: 12px;
+	line-height: 12px;
+}
+/** 第七、八行 **/
+.block7,.block8{
+	height: 104px;
+	border-top: 1px solid #000;
+}
+
+.block7 .block-col1,.block8 .block-col1{
+	float:left;
+	width: 400px;
+	height: 104px;
+}
+
+
+.block7 .block-col2,.block8 .block-col2{
+	position:relative;
+	float:left;
+	border-left: 1px solid #000;
+	height: 104px;
+	width: 192px;
+}
+.item-info{
+	margin: 0;
+}
+/** 第七行内容 **/
+.to-pay{
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	width: 3em;
+}
+.block7 .item-info{
+	margin: 8px;
+}
+
+.money{
+	position: absolute;
+	right: 8px;
+	bottom: 8px;
+}
+.pay-money{
+	margin:0;
+	line-height: 104px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 17pt;
+}
+.item-count{
+	margin-left: 2em;
+}
+.remark{
+	overflow: hidden;
+	max-height: 4em;
+
+}
+/** 第八行内容 **/
+.to-sign{
+	position: absolute;
+	left: 8px;
+	top: 8px;
+	width: 5em;
+}
+.block8 .block-col1 {
+	position: relative;
+}
+.send-time{
+	position: absolute;
+	bottom: 1px;
+	left: 8px;
+}
+.delivery-info{
+	display:inline-block;
+	margin:8px 16px;
+	border: 1px solid #000;
+}
+
+</style>
+</head>
+
+<body class="page">
+	<div class="main">
+		<span class="pj-page">品骏联</span>
+		<div class="block1 clear-fix">
+			<div class="block-col1">
+				<img src="data:image/jpeg;base64,##CODE128(VAR(sys.waybillid))" class="barCode">
+            	<div class="barCode-text">##STRBLOAT(VAR(sys.waybillid))</div>
+            </div>
+            <div class="block-col2">
+				##VAR(custom.service.service_name)
+            </div>
+		</div>
+		<div class="block2">
+			订单号:##VAR(custom.order_id)
+		</div>
+		<div class="block3">
+			##VAR(waybilldata.pj_sortingCode)
+		</div>
+		<div class="block4">
+			##VAR(waybilldata.pj_orgName)
+		</div>
+		<div class="block5">
+			<div class="block-col1">
+				收
+			</div>
+			<div class="block-col2">
+				<p class="member-info">
+					<span class="name">##VAR(waybilldata.pj_consigneeName)</span>
+					<span class="mobile">##VAR(waybilldata.pj_consigneePhoneInfo)</span>
+				</p>
+				<p class="address-info">
+					##VAR(custom.receiver.province)##VAR(custom.receiver.city)##VAR(custom.receiver.area)##VAR(custom.receiver.address)
+				</p>
+				
+			</div>
+		</div>
+		<div class="block6">
+			<div class="block-col1">
+				寄
+			</div>
+			<div class="block-col2">
+				<p class="member-info">
+					<span class="name">##VAR(waybilldata.pj_senderName)</span>
+					<span class="mobile">##VAR(waybilldata.pj_senderPhoneInfo)</span>
+				</p>
+				<p class="address-info">
+					##VAR(custom.sender.province)##VAR(custom.sender.city)##VAR(custom.sender.area)##VAR(custom.sender.address)
+					
+				</p>
+			</div>
+		</div>
+		<div class="block7 clear-fix">
+			<div class="block-col1">
+				<p class="item-info">
+				<span>
+					寄托物:物品
+				</span>
+				<span class="item-count">
+					件数:1件
+				</span>d
+				</p>
+				<p class="item-info remark">
+					备注:##VAR(custom.custom_remark)
+					
+				</p>
+			</div>
+			<div class="block-col2">
+				<span class="to-pay">应收:</span>
+				<p class="pay-money">##VAR(waybilldata.pj_totalFee)</p>
+				<span class="money">元</span>
+			</div>
+			
+		</div>
+		<div class="block8 clear-fix">
+			<div class="block-col1">
+				<p class="item-info">
+					<span class="delivery-info">默认</span>
+					<span class="delivery-info">送货上门</span>
+				</p>
+				<p class="item-info">
+					<span class="delivery-info">已安检</span>
+					<span class="delivery-info">已验视</span>
+				</p>
+				<p class="item-info send-time">
+					寄件时间:##TIME(FULL)
+				</p>
+			</div>
+			<div class="block-col2">
+				<span class="to-sign">收方签署:</span>	
+			</div>
+			
+		</div>
+	</div>
+
+
+
+</body></html>

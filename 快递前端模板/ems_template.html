@@ -1,0 +1,413 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    /* 快递单换算8px == 1mm */
+    * {
+        box-sizing: border-box;
+    }
+
+    .pageContiner {
+        margin: 16px 16px;
+        padding: 0;
+        text-align: left;
+    }
+
+    .container {
+        width: 768px;
+        border: 1px solid #000000;
+        border-bottom: none;
+        margin: 0 0;
+        font-family: STHeiti, SimHei, Arial, Helvetica, sans-serif;
+    }
+
+    .block {
+        position: relative;
+        border-bottom: 1px solid #000;
+    }
+
+    .textcenter {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+    }
+
+    .textleft {
+        width: 100%;
+        position: absolute;
+        text-align: left;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        padding-left: 8px;
+    }
+
+    .block_top {
+        border-bottom: 1px solid #000;
+    }
+
+    .block_1 {
+        height: 140px;
+        width: 100%;
+    }
+
+    .block1_left {
+        height: 100%;
+        width: 320px;
+        float: left;
+        border-right: 1px solid #000;
+        border-bottom: none;
+        position: relative;
+    }
+
+    .block1_left_1 {
+        height: 80%;
+        width: 100%;
+        font-size: 40px;
+        position: relative;
+    }
+
+    .block1_left_2 {
+        height: 20%;
+        width: 100%;
+        float: left;
+        border-top: 1px solid #000;
+        border-bottom: none;
+        position: relative;
+    }
+
+    .block1_right_1 {
+        height: 140px;
+        width: 400px;
+        font-size: 40px;
+        border: none;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .block1_right_2 {
+        height: 20px;
+        width: 400px;
+        font-size: 15pt;
+        border: none;
+        overflow: hidden;
+    }
+
+    .block_2 {
+        text-align: center;
+        height: 60px;
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+    .block_3 {
+        height: 120px;
+        font-size: 20px;
+        font-weight: bold;
+        overflow: hidden;
+    }
+
+
+    .block_3_right {
+        font-size: 20px;
+        font-weight: bold;
+        overflow: hidden;
+    }
+    .box{
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .block_4 {
+        height: 80px;
+        font-size: 18px;
+        overflow: hidden;
+    }
+
+    /*.block_4_left {*/
+    /*font-size: 52px;*/
+    /*overflow: hidden;*/
+    /*}*/
+    .block_4_right {
+        font-size: 18px;
+        overflow: hidden;
+    }
+
+    .block_5 {
+        height: 112px;
+        font-size: 18px;
+        overflow: hidden;
+    }
+
+    .block_5_left {
+        float: left;
+        height: 100%;
+        width: 320px;
+        font-size: 10pt;
+        line-height: 30px;
+        overflow: hidden;
+        border-right: 1px solid #000;
+    }
+
+    .block_5_right {
+        font-size: 18px;
+        overflow: hidden;
+        line-height: 30px;
+        height: 100%;
+    }
+
+    .block_6 {
+        height: 136px;
+        font-size: 10pt;
+        overflow: hidden;
+    }
+
+    .block_6_left {
+        width: 100%;
+        font-size: 10pt;
+        overflow: hidden;
+        line-height: 30px;
+    }
+
+    .block_inline_50 {
+        width: 50%;
+        font-size: 10pt;
+        overflow: hidden;
+        /*line-height: 30px;*/
+    }
+
+    .row {
+        width: 100%;
+        font-size: 10pt;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        /*line-height: 30px;*/
+    }
+
+    .block_line {
+        height: 32px;
+        font-size: 10pt;
+        overflow: hidden;
+        border: none;
+    }
+
+    .block_bottom {
+        height: 448px;
+        width: 100%;
+        border: none;
+    }
+
+    .block_b1 {
+        height: 120px;
+        width: 100%;
+        border-bottom: 1px solid #000;
+        /*background-color: yellow;*/
+    }
+
+    .block_b1_1 {
+        padding-top: 16px;
+        height: 100%;
+        width: 55%;
+        float: left;
+        border:none;
+        border-right: 1px solid #000;
+    }
+
+    .block_b1_2 {
+        padding-top: 16px;
+        height: 100%;
+        width: 45%;
+        float: left;
+        border:none;
+    }
+
+    .block_b2 {
+        height: 136px;
+        width: 100%;
+        line-height: 1.6;
+        /*background-color: blue;*/
+    }
+
+    .block_b2_left {
+        padding-left: 4px;
+        font-size: 10pt;
+        width:55%;
+        font-weight: bold;
+        overflow: hidden;
+        line-height: 30px;
+        float: left;
+        height: 100%;
+        border-bottom: none;
+        border-right: 1px solid #000;
+
+    }
+
+    .block_b2_right {
+        width:45%;
+        padding-left: 4px;
+        font-size: 10pt;
+        font-weight: bold;
+        overflow: hidden;
+        line-height: 30px;
+        border-bottom: none;
+        /*background-color: red;*/
+    }
+
+    .block_b3 {
+        height: 136px;
+        width: 100%;
+        line-height: 30px;
+        /*background-color: green;*/
+    }
+
+    .block_b3_right {
+        font-size: 20px;
+        font-weight: bold;
+        overflow: hidden;
+        line-height: 30px;
+    }
+
+    .block_bb {
+        height: 56px;
+        width: 100%;
+        line-height: 30px;
+        float: left;
+        font-weight: bold;
+    }
+
+    .block_barCode {
+        width: 350px;
+        height: 100px;
+        padding-left: 8px;
+        padding-top: 0px;
+    }
+
+    .block_barCode1 {
+        width: 350px;
+        height: 80px;
+        padding-left: 8px;
+    }
+    .posr{
+        position: relative;
+    }
+    .lh{
+        line-height: 1.6;
+    }
+    </style>
+</head>
+<body class="pageContiner">
+    <div class="container">
+        <div class="block block_top">
+            <div class="block block_1">
+                <div class="block block1_left">
+                    <div class="block1_left_1"><div class="textcenter">##VAR(custom.service.service_name)</div></div>
+                    <div class="block1_left_2"><div class="textleft">时间:##TIME(FULL)</div></div>
+                </div>
+				<div class="block block1_right_1">
+                    <div class="textcenter">
+                        <img src="data:image/jpeg;base64, ##CODE128(VAR(sys.waybillid))" class="block_barCode">
+                        <div class="block1_right_2">##VAR(sys.waybillid)</div>
+                    </div>
+
+				</div>
+            </div>
+
+            <div class="block block_2 posr">
+                <div class="textcenter">
+                    ##VAR(waybilldata.info)
+                </div>
+            </div>
+
+            <div class="block block_3 box">
+                <div class="">收:</div>
+                <div class="block_3_right">
+                    ##VAR(custom.receiver.name) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ##VAR(custom.receiver.tel) <br/>
+                    ##VAR(custom.receiver.province)##VAR(custom.receiver.city)##VAR(custom.receiver.area)##VAR(custom.receiver.address)
+                </div>
+            </div>
+
+            <div class="block block_4 box">
+                <div class="">寄:</div>
+                <div class="block_4_right">
+                    ##VAR(custom.sender.name) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ##VAR(custom.sender.tel) <br/>
+                    ##VAR(custom.sender.province)##VAR(custom.receiver.city)##VAR(custom.sender.area)##VAR(custom.sender.address)
+                </div>
+            </div>
+
+            <div class="block block_5 ">
+                <div class="block_5_left box">
+                    付款方式: <br/>
+                    计费重量(KG): <br/>
+                    保价金额(元): <br/>
+                </div>
+                <div class="block_5_right box">
+                    收件人\代收人: <br/>
+                    签收时间: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日 <br/>
+                    <span style="font-size: 8pt;">快件送达收货人地址,经收件人或收件人允许的代收人签字,视为送达.</span>
+                </div>
+            </div>
+
+            <div class="block block_6">
+                <div class="block_6_left box">
+                    <div class="row">
+                        <div class="block_inline_50">订单号:##VAR(custom.order_id)</div>
+                        <div class="block_inline_50">件数:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重量(KG):##VAR(custom.cargo.weight)</div>
+                    </div>
+                    配货信息:
+                        <span style="font-size: 15px">##VAR(custom.shop.goods_name)</span>
+                </div>
+            </div>
+            <div class="block block_line">
+               &nbsp;
+            </div>
+        </div>
+        <div class="block block_bottom">
+            <div class="block block_b1">
+                <div class="block block_b1_1">
+                    <div class="textcenter">
+                        <img src="data:image/jpeg;base64, ##CODE128(VAR(sys.waybillid))" class="block_barCode1">
+                        <div class="block1_right_2">##VAR(sys.waybillid)</div>
+                    </div>
+                </div>
+                <div class="block block_b1_2 posr" style="font-size: 50pt;">
+                    <div class="textcenter">EMS</div>
+                </div>
+            </div>
+            <div class="block block_b2">
+                <div class="block block_b2_left box">
+                    <div class="">收:</div>
+                    <div class="lh">
+                        ##VAR(custom.receiver.name) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ##VAR(custom.receiver.tel) <br/>
+                        ##VAR(custom.receiver.province)##VAR(custom.receiver.city)##VAR(custom.receiver.area)##VAR(custom.receiver.address)
+                    </div>
+                </div>
+                <div class="block block_b2_right box">
+                    <div class="">寄:</div>
+                    <div class="lh">
+                        ##VAR(custom.sender.name) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ##VAR(custom.sender.tel) <br/>
+                        ##VAR(custom.sender.province)##VAR(custom.sender.city)##VAR(custom.sender.area)##VAR(custom.sender.address)
+                    </div>
+                </div>
+            </div>
+            <div class="block block_b3 box">
+                <div class="">备注:</div>
+                <div class="block_b3_right">
+                    ##VAR(custom.custom_remark)
+                </div>
+            </div>
+            <div class="block block_bb posr">
+                <div class="textleft">
+                    网址:&nbsp;&nbsp;&nbsp;&nbsp;www.ems.com.cn &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服电话:&nbsp;&nbsp;11183
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
